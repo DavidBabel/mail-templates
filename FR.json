@@ -1,0 +1,11 @@
+{
+    "page_title": "bonjour",
+    "title": "Voilà mon titre",
+    "message1": {
+        "text": "Voici mon texte en français",
+        "size": "18px"
+    },
+    "common_image": "image commune",
+    "language_image": "image spécifique",
+    "error": "pour test"
+}

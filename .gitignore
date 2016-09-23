@@ -1,0 +1,7 @@
+generated/
+*.gif
+*.jpg
+*.jpeg
+*.png
+!flag.png
+!common.jpg

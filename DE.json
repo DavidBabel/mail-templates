@@ -1,0 +1,10 @@
+{
+    "page_title": "Guten Tag",
+    "title": "Dans ist meine Titel",
+    "message1": {
+        "text": "dies ist mein Text",
+        "size": "14px"
+    },
+    "common_image": "gemeinsames Bild",
+    "language_image": "Bild spezifische"
+}
