@@ -20,6 +20,9 @@ dest_folder="generated"
 imgs_folder="images"
 html_template="model.html"
 
+
+cd ${0/\/compile.sh/}
+
 # compare json
 echo -e "\033[36m  ============================== \033[39m"
 echo -e "\033[36m =  vérification des clés JSON  = \033[39m"
@@ -62,4 +65,8 @@ for lang_file in *.json; do
         echo -e "-> \033[33m${lang_file}\033[39m compilé en \033[32m${lang_code}/${lang_code}.html\033[39m"
     fi
 done
+
+echo ""
+echo "Appuyer sur 'Entrer' pour quitter"
+read end
 
