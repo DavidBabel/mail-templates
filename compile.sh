@@ -15,13 +15,49 @@ if [ $? -ne 0 ]; then
     exit
 fi
 
+command -v jsonlint > /dev/null
+if [ $? -ne 0 ]; then
+    echo -e "\033[31mErreur : jsonlint n'est pas installé : sudo npm install jsonlint -g \033[39m"
+    exit
+fi
+
 # config
 dest_folder="generated"
 imgs_folder="images"
 html_template="model.html"
 
 
-cd ${0/\/compile.sh/}
+cd "${0/\/compile.sh/}"
+
+
+# validate json
+echo -e "\033[36m  ================================== \033[39m"
+echo -e "\033[36m =  vérification des fichiers JSON  = \033[39m"
+echo -e "\033[36m  ================================== \033[39m"
+echo ""
+error=0
+for lang_file in *.json; do
+    test_error=`jsonlint ${lang_file} -q 2>&1`
+
+    if [ -z "$test_error" ]; then
+        echo -e "Fichier \033[32m${lang_file}\033[39m valide."
+    else
+        echo -e "Fichier \033[31m${lang_file}\033[39m non valide:"
+        echo "${test_error}"
+        error=1
+    fi
+done
+
+if [ "$error" = 1 ]; then
+        echo ""
+        echo -e "\033[31mCorriger les erreurs pour pouvoir compiler\033[39m"
+        echo ""
+        echo "Appuyer sur 'Entrer' pour quitter"
+        read end
+        exit
+fi
+echo ""
+
 
 # compare json
 echo -e "\033[36m  ============================== \033[39m"
