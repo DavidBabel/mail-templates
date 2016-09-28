@@ -5,7 +5,7 @@
         "text": "Voici mon texte en français",
         "size": "18px"
     },
-    "common_image": "image commune",
+    "common_image": "image {{language_image}}",
     "language_image": "image spécifique",
     "error": "pour test"
 }

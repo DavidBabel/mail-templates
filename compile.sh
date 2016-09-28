@@ -83,7 +83,9 @@ for lang_file in *.json; do
     mkdir "${dest_folder}/${lang_code}/${imgs_folder}"
     ## debug ##
     # echo "handlebars ${lang_file} < model.html > ${lang_code}/${lang_code}.html"
-    handlebars $lang_file --keep-missing < $html_template > "${dest_folder}/${lang_code}/${lang_code}.html"
+    handlebars $lang_file --keep-missing < $html_template > "${dest_folder}/${lang_code}/${lang_code}.tmp.html"
+    handlebars $lang_file --keep-missing < "${dest_folder}/${lang_code}/${lang_code}.tmp.html" > "${dest_folder}/${lang_code}/${lang_code}.html"
+    rm "${dest_folder}/${lang_code}/${lang_code}.tmp.html"
     # node ../handlebars-cmd/index.js $lang_file --keep-missing < $html_template > "${dest_folder}/${lang_code}/${lang_code}.html"
 
     cp ./$imgs_folder/* "${dest_folder}/${lang_code}/${imgs_folder}" 2>>/dev/null
