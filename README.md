@@ -2,6 +2,7 @@
 
 # Dependencies :
 
+> sudo npm install jsonlint -g
 > sudo npm install DavidBabel/handlebars-cmd -g
 > sudo npm install compare-json -g
 
